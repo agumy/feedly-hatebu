@@ -35,15 +35,10 @@ const config = {
   subtree: true,
 }
 
-const initialObserver = new MutationObserver((mutations) => {
+const contentObserver = new MutationObserver((mutations) => {
   for (const mutation of mutations) {
     const target = mutation.target as HTMLElement
-    if (
-      mutation.target.nodeType === 1 &&
-      (target.classList.contains('list-entries') ||
-        target.classList.contains('board') ||
-        target.id === 'feedlyPageFX')
-    ) {
+    if (mutation.target.nodeType === 1) {
       const contents = target.getElementsByClassName('content')
       const isTitleOnly = document
         ?.getElementById('headerBar')
@@ -61,6 +56,16 @@ const initialObserver = new MutationObserver((mutations) => {
           link.insertAdjacentElement('afterend', hatebu)
         }
       }
+    }
+  }
+})
+
+const initialObserver = new MutationObserver((mutations) => {
+  for (const mutation of mutations) {
+    const target = mutation.target as HTMLElement
+    if (target.id === 'feedlyPageFX') {
+      contentObserver.observe(target, config)
+      initialObserver.disconnect()
     }
   }
 })
