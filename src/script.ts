@@ -53,7 +53,7 @@ const contentObserver = new MutationObserver((mutations) => {
             link.getAttribute('href') || '',
             'fh-list'
           )
-          link.insertAdjacentElement('afterend', hatebu)
+          link.insertAdjacentElement('beforebegin', hatebu)
         }
       }
     }
@@ -71,3 +71,5 @@ const initialObserver = new MutationObserver((mutations) => {
 })
 
 initialObserver.observe(document.body, config)
+
+console.log("hellpo,adsd")

@@ -1,6 +1,6 @@
 {
-  "name": "Feedly はてブ",
-  "version": "0.10.0",
+  "name": "はてな Feedly",
+  "version": "1.0.0",
   "manifest_version": 2,
   "description": "はてなブックマークの情報を Feedly 上に表示します。",
   "icons": {
@@ -10,9 +10,15 @@
   },
   "content_scripts": [
     {
-      "matches": ["https://feedly.com/*"],
-      "css": ["css/style.css"],
-      "js": ["js/script.js"]
+      "matches": [
+        "https://feedly.com/*"
+      ],
+      "css": [
+        "css/style.css"
+      ],
+      "js": [
+        "js/script.js"
+      ]
     }
   ]
 }
