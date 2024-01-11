@@ -1,24 +1,24 @@
 {
-  "name": "はてな Feedly",
-  "version": "1.0.0",
-  "manifest_version": 2,
+  "content_scripts": [
+    {
+      "css": [
+        "css/style.css"
+      ],
+      "js": [
+        "js/script.js"
+      ],
+      "matches": [
+        "https://feedly.com/*"
+      ]
+    }
+  ],
   "description": "はてなブックマークの情報を Feedly 上に表示します。",
   "icons": {
     "16": "icons/icon16.png",
     "48": "icons/icon48.png",
     "128": "icons/icon128.png"
   },
-  "content_scripts": [
-    {
-      "matches": [
-        "https://feedly.com/*"
-      ],
-      "css": [
-        "css/style.css"
-      ],
-      "js": [
-        "js/script.js"
-      ]
-    }
-  ]
+  "manifest_version": 3,
+  "name": "はてな Feedly",
+  "version": "1.0.0"
 }

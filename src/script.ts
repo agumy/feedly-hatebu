@@ -39,16 +39,16 @@ const contentObserver = new MutationObserver((mutations) => {
   for (const mutation of mutations) {
     const target = mutation.target as HTMLElement
     if (mutation.target.nodeType === 1) {
-      const contents = target.getElementsByClassName('content')
-      const isTitleOnly = document
-        ?.getElementById('headerBar')
-        ?.classList.contains('title-only')
+      const contents = target.getElementsByTagName('article')
+      // const isTitleOnly = document
+      //   ?.getElementById('feedlyPageFX')
+      //   ?.classList.contains('title-only')
 
       for (const node of contents) {
         const links = node.querySelectorAll('a')
-        const anchorCount = isTitleOnly ? 1 : 2
+        const anchorCount = 2
         if (links.length <= anchorCount) {
-          const [link] = links
+          const [, link] = links
           const hatebu = generateHatebu(
             link.getAttribute('href') || '',
             'fh-list'
@@ -72,4 +72,4 @@ const initialObserver = new MutationObserver((mutations) => {
 
 initialObserver.observe(document.body, config)
 
-console.log("hellpo,adsd")
+console.log('hellpo,adsd')

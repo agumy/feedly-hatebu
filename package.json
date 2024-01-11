@@ -23,5 +23,8 @@
   },
   "dependencies": {
     "@types/chrome": "^0.0.107"
+  },
+  "volta": {
+    "node": "14.15.0"
   }
 }
